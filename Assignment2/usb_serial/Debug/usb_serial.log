@@ -1,0 +1,36 @@
+﻿  
+  -------- begin --------
+  avr-gcc.exe (WinAVR 20100110) 4.3.3
+  Copyright (C) 2008 Free Software Foundation, Inc.
+  This is free software; see the source for copying conditions.  There is NO
+  warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  
+  
+  Compiling C: example.c
+  avr-gcc -c -mmcu=atmega32u4         -I. -gdwarf-2 -DF_CPU=16000000UL -Os -funsigned-char -funsigned-bitfields -ffunction-sections -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=./example.lst  -std=gnu99 -MMD -MP -MF .dep/example.o.d example.c -o example.o 
+  
+  Compiling C: usb_serial.c
+  avr-gcc -c -mmcu=atmega32u4         -I. -gdwarf-2 -DF_CPU=16000000UL -Os -funsigned-char -funsigned-bitfields -ffunction-sections -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=./usb_serial.lst  -std=gnu99 -MMD -MP -MF .dep/usb_serial.o.d usb_serial.c -o usb_serial.o 
+  
+  Linking: example.elf
+  avr-gcc -mmcu=atmega32u4         -I. -gdwarf-2 -DF_CPU=16000000UL -Os -funsigned-char -funsigned-bitfields -ffunction-sections -fpack-struct -fshort-enums -Wall -Wstrict-prototypes -Wa,-adhlns=example.o  -std=gnu99 -MMD -MP -MF .dep/example.elf.d example.o usb_serial.o --output example.elf -Wl,-Map=example.map,--cref -Wl,--relax -Wl,--gc-sections     -lm
+  
+  Creating load file for Flash: example.hex
+  avr-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature example.elf example.hex
+  
+  Creating load file for EEPROM: example.eep
+  avr-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+  --change-section-lma .eeprom=0 --no-change-warnings -O ihex example.elf example.eep || exit 0
+  
+  Creating Extended Listing: example.lss
+  avr-objdump -h -S -z example.elf > example.lss
+  
+  Creating Symbol Table: example.sym
+  avr-nm -n example.elf > example.sym
+  
+  Size after:
+     text	   data	    bss	    dec	    hex	filename
+     2464	      8	      4	   2476	    9ac	example.elf
+  
+  -------- end --------
+  

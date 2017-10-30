@@ -1,0 +1,7 @@
+﻿  avr-gcc Assignment2.c -mmcu=atmega32u4 -Os -DF_CPU=8000000UL -std=gnu99 -Wall -Werror -I../cab202_teensy -L../cab202_teensy -Wl,-u,vfprintf -lprintf_flt -lcab202_teensy -lm -o Assignment2.o
+  Assignment2.c:1:1: error: "__AVR_ATmega32U4__" redefined
+<built-in> : error : this is the location of the previous definition
+  Assignment2.c:10:24: error: usb_serial.h: No such file or directory
+  Makefile:19: recipe for target 'all' failed
+  make: *** [all] Error 1
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(37,5): error MSB3073: The command "make" exited with code 2.
